@@ -1,5 +1,4 @@
 const express = require('express')
-const req = require('express/lib/request')
 
 const { v4: uuidv4 } = require('uuid')
 
@@ -75,7 +74,7 @@ app.post('/deposit', verifyIfExistsAccountCPF, (req, res) => {
 
   customer.statement.push(statementOperation)
 
-  return res.status(201).send()
+  return res.status(201).send('Deposit successfull!')
 })
 
 app.post('/withdraw', verifyIfExistsAccountCPF, (req, res) => {
@@ -96,7 +95,7 @@ app.post('/withdraw', verifyIfExistsAccountCPF, (req, res) => {
 
   customer.statement.push(statementOperation)
 
-  return res.status(201).send()
+  return res.status(201).send('Withdraw successfull!')
 })
 
 app.get('/statement/date', verifyIfExistsAccountCPF, (req, res) => {
